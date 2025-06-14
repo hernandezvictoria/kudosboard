@@ -4,31 +4,33 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <header>
+
+      <h1>kudos board</h1>
+
+      <form className="searchForm">
+        <input className="searchInput" type="text" placeholder="search boards" />
+        <img className="searchButton" src="src/assets/3844432_magnifier_search_zoom_icon.png" alt="search icon"/>
+        <img className="clearButton" src="src/assets/8666736_x_circle_icon.png" alt="clear icon"/>
+      </form>
+
+      <section className="filterButtonContainer">
+        <button id="allButton" className="filterButton">all</button>
+        <button className="filterButton">recent</button>
+        <button className="filterButton">celebration</button>
+        <button className="filterButton">thank you</button>
+        <button className="filterButton">inspiration</button>
+      </section>
+
+
+
+      </header>
+
+    </div>
   )
 }
 
