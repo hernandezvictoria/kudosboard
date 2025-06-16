@@ -1,0 +1,50 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    min-width: 150px;
+    margin-top: 20px;
+    transition: transform 0.3s ease-out; /* Add this line */
+    border-radius: 20px;
+}
+
+.board-image{
+    border-radius: 20px;
+}
+
+.board:hover {
+    filter: brightness(0.8);
+    cursor: pointer
+}
+
+.board:hover .board-info {
+    display: block;
+    filter:brightness(100%);
+}
+
+.board-title {
+    font-size: 30px;
+}
+
+
+.board-info {
+
+    display: none; /* Initially hide the text */
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border-radius:10px;
+    padding: 10px;
+    font-size:15px;
+    padding: 5px;
+    white-space: nowrap;
+    text-align:left;
+}
+
+.board-title{
+    text-align:left;
+}
+
+.board-type{
+    text-align:left;
+}
