@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import BoardContainer from './components/BoardContainer.jsx'
+import Search from './components/Search.jsx'
+import Filter from './components/Filter.jsx'
+import AddBoard from './components/AddBoard.jsx'
 
 const placeholderData = [
   {
@@ -149,34 +152,57 @@ const placeholderData = [
   }
 ];
 
+
 function App() {
 
+  const [allData, setAllData] = useState(placeholderData)
+  const [displayedData, setDisplayedData] = useState(placeholderData)
+
+  const onFilterClick = (filter) => {
+    if (filter === 'all') {
+      setDisplayedData(allData);
+    }
+    else if(filter === 'recent'){
+      setDisplayedData(allData.filter(item => item.id > allData.length - 6));
+    }
+    else if(filter === 'thank you') {
+      setDisplayedData(allData.filter(item => item.type === 'thank you'));
+    }
+    else if(filter === 'celebration') {
+      setDisplayedData(allData.filter(item => item.type === 'celebration'));
+    }
+    else{
+      setDisplayedData(allData.filter(item => item.type === 'inspiration'));
+    }
+  }
+
+  const onSearch = (searchTerm) => {
+    console.log(searchTerm);
+    setDisplayedData(allData.filter(item => item.title.toString().toLowerCase().includes(searchTerm.toString().toLowerCase())));
+  }
+
+  const onClear = () => {
+    setDisplayedData(allData);
+  }
 
   return (
     <div className="App">
       <header>
-
         <h1>kudos board</h1>
+        <Search onSearch={onSearch} onClear={onClear}/>
+        <Filter onFilterClick={onFilterClick}/>
 
-        <form className="searchForm">
-          <input className="searchInput" type="text" placeholder="search boards" />
-          <img className="searchButton" src="src/assets/3844432_magnifier_search_zoom_icon.png" alt="search icon"/>
-          <img className="clearButton" src="src/assets/8666736_x_circle_icon.png" alt="clear icon"/>
-        </form>
 
-        <section className="filterButtonContainer">
-          <button id="allButton" className="filterButton">all</button>
-          <button className="filterButton">recent</button>
-          <button className="filterButton">celebration</button>
-          <button className="filterButton">thank you</button>
-          <button className="filterButton">inspiration</button>
-        </section>
       </header>
 
       <section className="body">
         <section className="boardContainer">
-          <BoardContainer data={placeholderData}/>
+          <BoardContainer data={displayedData}/>
         </section>
+      </section>
+
+      <section className="addBoard">
+        <AddBoard />
       </section>
 
     </div>

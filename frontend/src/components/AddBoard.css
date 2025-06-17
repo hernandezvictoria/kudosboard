@@ -1,0 +1,105 @@
+.addImage{
+    width:40px;
+}
+
+.addButton:hover{
+    cursor:pointer;
+}
+
+h2{
+    font-size: 50px;
+}
+
+p{
+   font-size:25px;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* black with 30% opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+ }
+
+ .modal {
+    position: relative;
+    padding: 30px;
+    width: 20%;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    animation: fadeIn 0.3s ease-out;
+ }
+
+ @keyframes fadeIn {
+   from {
+     opacity: 0;
+     transform: translateY(-20px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+
+ .modalTitle{
+    font-size: 40px;
+ }
+
+ .addForm{
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+
+ }
+
+ .nameInput{
+    font-size:20px;
+    text-align:center;
+    width:98.5%;
+    height: 40px;
+    border-radius:10px;
+    border:none;
+    background-color: #ececec;
+    margin:20px 0px;
+
+  }
+
+  .nameInput:hover, .categoryInput:hover{
+    background-color: #e4e4e4;
+  }
+
+  .categoryInput{
+    margin-bottom:20px;
+    color:gray;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+    height: 40px;
+    border-radius:10px;
+    border:none;
+    background-color: #ececec;
+  }
+
+  .submitButton{
+    width:100%;
+    height:40px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:20px;
+  }
+
+  .submitButton:hover{
+    background-color: #ececec;
+    cursor: pointer;
+  }

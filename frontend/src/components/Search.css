@@ -1,0 +1,45 @@
+.buttonImage{
+    width:40px;
+}
+
+button{
+    border:none;
+}
+
+
+
+.searchButton:hover, .clearButton:hover{
+    cursor: pointer;
+}
+
+  .searchForm{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
+    margin-bottom: 20px;
+  }
+
+  form{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+
+  }
+
+  .searchInput{
+    font-size:20px;
+    padding-left:20px;
+    text-align:left;
+    width:90%;
+    height: 40px;
+    border-radius:10px;
+    border:none;
+    background-color: #ececec;
+  }
+
+  .searchInput:hover{
+    background-color: #e4e4e4;
+  }

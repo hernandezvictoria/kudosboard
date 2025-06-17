@@ -1,0 +1,21 @@
+
+.filterButtonContainer{
+    display:flex;
+    justify-content:left;
+    width:80%;
+    margin-right:auto;
+    margin-left:auto;
+  }
+
+  .filterButton{
+    height:40px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    margin-right: 5%;
+  }
+
+  .filterButton:hover{
+    background-color: #ececec;
+    cursor: pointer;
+  }

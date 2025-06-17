@@ -4,22 +4,25 @@
     width: 15%;
     min-width: 150px;
     margin-top: 20px;
-    transition: transform 0.3s ease-out; /* Add this line */
+    margin-bottom:20px;
     border-radius: 20px;
+    position: relative;
 }
 
 .board-image{
     border-radius: 20px;
 }
 
-.board:hover {
-    filter: brightness(0.8);
-    cursor: pointer
+.board:hover{
+    cursor:pointer;
+}
+
+.board:hover .board-image {
+    filter: brightness(0.6);
 }
 
 .board:hover .board-info {
     display: block;
-    filter:brightness(100%);
 }
 
 .board-title {
@@ -28,23 +31,32 @@
 
 
 .board-info {
-
     display: none; /* Initially hide the text */
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    border-radius:10px;
-    padding: 10px;
-    font-size:15px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    border-radius: 10px;
+    font-size: 15px;
     padding: 5px;
     white-space: nowrap;
-    text-align:left;
+    text-align: left;
+    color: white;
+    background-color:transparent;
 }
+
+
 
 .board-title{
     text-align:left;
+    color:white;
+    background-color:transparent;
+    font-size:300%;
 }
 
 .board-type{
     text-align:left;
+    color:white;
+    background-color:transparent;
+    font-size:150%;
 }
