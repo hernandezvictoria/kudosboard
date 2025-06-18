@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
     //prisma.<NAME OF TABLE>.findMany();
     const allBoards = await prisma.board.findMany();
     res.json(allBoards);
-
 });
 
 router.get('/:filter', async (req, res) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Filter.css";
-import Filters from "../../../enums.js";
+import Filters from "../../enums.js";
 
 function Filter(props) {
     //props: onFilterClick(filter)
