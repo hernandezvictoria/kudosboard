@@ -157,12 +157,15 @@ function App() {
   const [displayedData, setDisplayedData] = useState([])
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const displayAllData = () => {
     fetch('http://localhost:3000/boards')
     .then((response) => {return response.json()})
     .then((data) => setDisplayedData(data))
     .catch(error => setError(error));
+  };
 
+  useEffect(() => {
+    displayAllData();
   }, []); // show all boards on the first render
 
   const onFilterClick = (filter) => {
@@ -173,12 +176,14 @@ function App() {
   }
 
   const onSearch = (searchTerm) => {
-    console.log(searchTerm);
-    setDisplayedData(allData.filter(item => item.title.toString().toLowerCase().includes(searchTerm.toString().toLowerCase())));
+    fetch(`http://localhost:3000/boards/search/${searchTerm}`)
+    .then((response) => {return response.json()})
+    .then((data) => setDisplayedData(data))
+    .catch(error => console.error(setError(error)));
   }
 
   const onClear = () => {
-    setDisplayedData(allData);
+    displayAllData();
   }
 
   if(error){

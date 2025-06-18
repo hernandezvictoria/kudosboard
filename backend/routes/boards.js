@@ -34,7 +34,7 @@ router.get('/:filter', async (req, res) => {
     }
 });
 
-
+// search boards by title
 router.get('/search/:searchTerm', async (req, res) => {
     const searchTerm = req.params.searchTerm;
 
