@@ -4,13 +4,14 @@ const router = express.Router();
 const {PrismaClient} = require('@prisma/client');
 const prisma = new PrismaClient();
 
-
+// get all boards
 router.get('/', async (req, res) => {
     //prisma.<NAME OF TABLE>.findMany();
     const allBoards = await prisma.board.findMany();
     res.json(allBoards);
 });
 
+// filter boards by type
 router.get('/:filter', async (req, res) => {
     const filter = req.params.filter;
     if(filter === Filters.ALL){
@@ -32,6 +33,7 @@ router.get('/:filter', async (req, res) => {
         res.status(200).json(filteredBoards);
     }
 });
+
 
 router.get('/search/:searchTerm', async (req, res) => {
     const searchTerm = req.params.searchTerm;
