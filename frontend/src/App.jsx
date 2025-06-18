@@ -8,7 +8,7 @@ import AddBoard from './components/AddBoard.jsx'
 
 function App() {
 
-  const [displayedData, setDisplayedData] = useState([])
+  const [displayedData, setDisplayedData] = useState([]);
   const [error, setError] = useState(null);
 
   const displayAllData = () => {
@@ -36,6 +36,20 @@ function App() {
     .catch(error => console.error(setError(error)));
   }
 
+  const onAddBoard = (newBoard) => {
+    fetch(`http://localhost:3000/boards/add-board`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newBoard),
+    })
+      .then((response) => response.json())
+      .then((newData) => setDisplayedData([...displayedData, newData]))
+      .catch((error) => console.error(setError(error)));
+  };
+
+
   const onClear = () => {
     displayAllData();
   }
@@ -46,6 +60,7 @@ function App() {
   else{
     return (
       <div className="App">
+
         <header>
           <h1>kudos board</h1>
           <Search onSearch={onSearch} onClear={onClear}/>
@@ -61,7 +76,7 @@ function App() {
         </section>
 
         <section className="add-board">
-          <AddBoard />
+          <AddBoard onAddBoard={onAddBoard}/>
         </section>
 
       </div>

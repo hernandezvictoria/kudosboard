@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from 'react'
 import "./AddBoard.css";
 
-function AddBoard(props) {
+function AddBoard({onAddBoard}) {
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -16,7 +16,20 @@ function AddBoard(props) {
 
     const handleAddBoard = (event) => {
         event.preventDefault();
-        
+        const title = event.target['board-name'].value;
+        const type = event.target['board-type'].value;
+        const author = event.target['board-author'].value;
+        const image_path = event.target['board-image'].value;
+
+        const newBoard = {
+            image_path: image_path? image_path : "https://images.pexels.com/photos/3651752/pexels-photo-3651752.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+            title,
+            type,
+            author
+        }
+
+        onAddBoard(newBoard);
+        closeModal();
     }
 
     const getModal = () => {
@@ -27,8 +40,8 @@ function AddBoard(props) {
                     <h2 className="modal-title">create a new board</h2>
                     <form className="add-form" onSubmit={handleAddBoard}>
                         <input type="text" className="name-input" name="board-name" placeholder="title *" required />
-                        <select className="category-input" required>
-                            <option value="default">select a category *</option>
+                        <select className="category-input" name="board-type" required>
+                            <option value="default" disabled>select a category *</option>
                             <option value="celebration">celebration</option>
                             <option value="thank you">thank you</option>
                             <option value="inspiration">inspiration</option>

@@ -5,7 +5,6 @@ import "./BoardContainer.css";
 function BoardContainer({data}) {
 //data: [{id, image_path, title, type, author}]
 
-console.log(data)
 
   return (
 

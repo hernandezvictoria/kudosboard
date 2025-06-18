@@ -51,8 +51,9 @@
     text-align: left;
     color: white;
     background-color: transparent;
-    font-size: 300%;
+    font-size: 200%;
 }
+
 
 .board-type, .board-author {
     text-align: left;
