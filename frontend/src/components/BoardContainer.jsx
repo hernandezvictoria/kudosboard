@@ -4,7 +4,7 @@ import "./BoardContainer.css";
 
 function BoardContainer(props) {
 //props: data
-//data: [{id, image, title, type, cards}]
+//data: [{id, image_path, title, type, cards}]
 
   return (
     <div className="row">
@@ -12,7 +12,7 @@ function BoardContainer(props) {
         props.data.map(obj => {
             return(<Board
                     key={obj.id}
-                    image={obj.image}
+                    image={obj.image_path}
                     title={obj.title}
                     type={obj.type}
                     cards={obj.cards}/>);

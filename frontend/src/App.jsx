@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import BoardContainer from './components/BoardContainer.jsx'
 import Search from './components/Search.jsx'
@@ -152,28 +152,24 @@ const placeholderData = [
   }
 ];
 
-
 function App() {
 
-  const [allData, setAllData] = useState(placeholderData)
-  const [displayedData, setDisplayedData] = useState(placeholderData)
+  const [displayedData, setDisplayedData] = useState([])
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/boards')
+    .then((response) => {return response.json()})
+    .then((data) => setDisplayedData(data))
+    .catch(error => setError(error));
+
+  }, []); // show all boards on the first render
 
   const onFilterClick = (filter) => {
-    if (filter === 'all') {
-      setDisplayedData(allData);
-    }
-    else if(filter === 'recent'){
-      setDisplayedData(allData.filter(item => item.id > allData.length - 6));
-    }
-    else if(filter === 'thank you') {
-      setDisplayedData(allData.filter(item => item.type === 'thank you'));
-    }
-    else if(filter === 'celebration') {
-      setDisplayedData(allData.filter(item => item.type === 'celebration'));
-    }
-    else{
-      setDisplayedData(allData.filter(item => item.type === 'inspiration'));
-    }
+    fetch(`http://localhost:3000/boards/${filter}`)
+    .then((response) => {return response.json()})
+    .then((data) => setDisplayedData(data))
+    .catch(error => console.error(setError(error)));
   }
 
   const onSearch = (searchTerm) => {
@@ -185,28 +181,35 @@ function App() {
     setDisplayedData(allData);
   }
 
-  return (
-    <div className="App">
-      <header>
-        <h1>kudos board</h1>
-        <Search onSearch={onSearch} onClear={onClear}/>
-        <Filter onFilterClick={onFilterClick}/>
+  if(error){
+    return <h1>Something went wrong 🫤 </h1>
+  }
+  else{
+    return (
+      <div className="App">
+        <header>
+          <h1>kudos board</h1>
+          <Search onSearch={onSearch} onClear={onClear}/>
+          <Filter onFilterClick={onFilterClick}/>
 
 
-      </header>
+        </header>
 
-      <section className="body">
-        <section className="boardContainer">
-          <BoardContainer data={displayedData}/>
+        <section className="body">
+          <section className="boardContainer">
+            <BoardContainer data={displayedData}/>
+          </section>
         </section>
-      </section>
 
-      <section className="add-board">
-        <AddBoard />
-      </section>
+        <section className="add-board">
+          <AddBoard />
+        </section>
 
-    </div>
-  )
+      </div>
+    )
+  }
+
 }
+
 
 export default App
