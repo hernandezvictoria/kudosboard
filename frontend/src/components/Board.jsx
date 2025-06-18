@@ -1,8 +1,13 @@
 import React from "react";
 import "./Board.css";
 
-function Board({id, image_path, title, type, author}) {
+function Board({onDeleteBoard, id, image_path, title, type, author}) {
 
+
+  const handleDelete = (event) => {
+    event.stopPropagation();
+    onDeleteBoard(parseInt(id));
+  }
 
   return (
     <div className="board">
@@ -12,6 +17,7 @@ function Board({id, image_path, title, type, author}) {
         <p className="board-type">{type}</p>
         <p className="board-author">{author}</p>
       </section>
+      <button className="delete-button" onClick={handleDelete}>🗑️</button>
     </div>
   );
 }

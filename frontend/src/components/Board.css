@@ -28,6 +28,10 @@
     display: block;
 }
 
+.board:hover .delete-button {
+    display:flex;
+}
+
 .board-title {
     font-size: 30px;
 }
@@ -64,4 +68,17 @@
 
 .board-author {
     font-size: 100%;
+}
+
+.delete-button {
+    display:none;
+    transform: translateY(-40px);
+    background-color: transparent;
+    justify-content: right;
+    height:0px;
+    margin:0px;
+}
+
+.delete-button:hover {
+    cursor: pointer;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Board from "./Board.jsx";
 import "./BoardContainer.css";
 
-function BoardContainer({data}) {
+function BoardContainer({data, onDeleteBoard}) {
 //data: [{id, image_path, title, type, author}]
 
 
@@ -13,6 +13,7 @@ function BoardContainer({data}) {
         data.map(obj => {
             return(<Board
                     key={obj.id}
+                    onDeleteBoard={onDeleteBoard}
                     id={obj.id}
                     image_path={obj.image_path}
                     title={obj.title}

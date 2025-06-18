@@ -49,6 +49,13 @@ function App() {
       .catch((error) => console.error(setError(error)));
   };
 
+  const onDeleteBoard = (id) => {
+    fetch(`http://localhost:3000/boards/delete-board/${id}`, {method: 'DELETE'})
+    .then((response) => response.json())
+    .then((deletedBoard) => setDisplayedData(displayedData.filter((board) => board.id !== deletedBoard.id)))
+    .catch((error) => console.error(setError(error)));
+  };
+
 
   const onClear = () => {
     displayAllData();
@@ -71,13 +78,17 @@ function App() {
 
         <section className="body">
           <section className="boardContainer">
-            <BoardContainer data={displayedData}/>
+            <BoardContainer data={displayedData} onDeleteBoard={onDeleteBoard}/>
           </section>
         </section>
 
         <section className="add-board">
           <AddBoard onAddBoard={onAddBoard}/>
         </section>
+
+        <footer>
+          <p className="footer">made with ♡ by victoria hernandez</p>
+        </footer>
 
       </div>
     )
