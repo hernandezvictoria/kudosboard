@@ -62,7 +62,7 @@ p{
 
  }
 
- .name-input{
+ .name-input, .author-input{
     font-size:20px;
     text-align:center;
     width:98.5%;
@@ -72,6 +72,10 @@ p{
     background-color: #ececec;
     margin:20px 0px;
 
+  }
+
+  .author-input{
+    margin-top:0px;
   }
 
   .name-input:hover, .category-input:hover{

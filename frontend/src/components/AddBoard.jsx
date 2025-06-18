@@ -14,22 +14,29 @@ function AddBoard(props) {
         setModalOpen(false);
     }
 
+    const handleAddBoard = (event) => {
+        event.preventDefault();
+        
+    }
+
     const getModal = () => {
         if (modalOpen) {
             return(
             <div className="modal-overlay" onClick={closeModal}>
                 <div className="modal" onClick={(event) => event.stopPropagation()}>
                     <h2 className="modal-title">create a new board</h2>
-                    <div className="add-form">
-                        <input type="text" className="name-input" name="board-name" placeholder="title" required />
+                    <form className="add-form" onSubmit={handleAddBoard}>
+                        <input type="text" className="name-input" name="board-name" placeholder="title *" required />
                         <select className="category-input" required>
-                            <option value="default">select a category</option>
+                            <option value="default">select a category *</option>
                             <option value="celebration">celebration</option>
                             <option value="thank you">thank you</option>
                             <option value="inspiration">inspiration</option>
                         </select>
+                        <input type="text" className="author-input" name="board-author" placeholder="author" />
+                        <input type="text" className="image-input" name="board-image" placeholder="image url" />
                         <button aria-label="submit new board" className="submit-button" type="submit">create</button>
-                    </div>
+                    </form>
                 </div>
             </div>)
         }

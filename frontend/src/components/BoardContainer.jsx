@@ -2,20 +2,23 @@ import React from "react";
 import Board from "./Board.jsx";
 import "./BoardContainer.css";
 
-function BoardContainer(props) {
-//props: data
-//data: [{id, image_path, title, type, cards}]
+function BoardContainer({data}) {
+//data: [{id, image_path, title, type, author}]
+
+console.log(data)
 
   return (
+
     <div className="row">
     {
-        props.data.map(obj => {
+        data.map(obj => {
             return(<Board
                     key={obj.id}
-                    image={obj.image_path}
+                    id={obj.id}
+                    image_path={obj.image_path}
                     title={obj.title}
                     type={obj.type}
-                    cards={obj.cards}/>);
+                    author={obj.author}/>);
         })
         }
     </div>

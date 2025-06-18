@@ -1,20 +1,23 @@
+
+
 .board {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width:15%;
     min-width: 150px;
     margin-top: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     position: relative;
 }
 
-.board-image{
+.board-image {
     border-radius: 20px;
+    position: relative; /* Make the image the positioning context */
 }
 
-.board:hover{
-    cursor:pointer;
+.board:hover {
+    cursor: pointer;
 }
 
 .board:hover .board-image {
@@ -29,11 +32,10 @@
     font-size: 30px;
 }
 
-
 .board-info {
     display: none; /* Initially hide the text */
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 10px;
     z-index: 1000;
     border-radius: 10px;
@@ -42,21 +44,23 @@
     white-space: nowrap;
     text-align: left;
     color: white;
-    background-color:transparent;
+    background-color: transparent;
 }
 
-
-
-.board-title{
-    text-align:left;
-    color:white;
-    background-color:transparent;
-    font-size:300%;
+.board-title {
+    text-align: left;
+    color: white;
+    background-color: transparent;
+    font-size: 300%;
 }
 
-.board-type{
-    text-align:left;
-    color:white;
-    background-color:transparent;
-    font-size:150%;
+.board-type, .board-author {
+    text-align: left;
+    color: white;
+    background-color: transparent;
+    font-size: 150%;
+}
+
+.board-author {
+    font-size: 100%;
 }
