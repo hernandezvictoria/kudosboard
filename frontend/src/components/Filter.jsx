@@ -1,5 +1,6 @@
 import React from "react";
 import "./Filter.css";
+import Filters from "../../../enums.js";
 
 function Filter(props) {
     //props: onFilterClick(filter)
@@ -9,12 +10,12 @@ function Filter(props) {
     }
 
     return (
-        <section className="filterButtonContainer">
-            <button id="all" className="filterButton" onClick={onClick}>all</button>
-            <button id="recent" className="filterButton" onClick={onClick}>recent</button>
-            <button id="celebration" className="filterButton" onClick={onClick}>celebration</button>
-            <button id="thank you" className="filterButton" onClick={onClick}>thank you</button>
-            <button id="inspiration" className="filterButton" onClick={onClick}>inspiration</button>
+        <section className="filter-button-container">
+            <button aria-label="show all boards" id={Filters.ALL} className="filter-button" onClick={onClick}>all</button>
+            <button aria-label="filter for recent" id={Filters.RECENT} className="filter-button" onClick={onClick}>recent</button>
+            <button aria-label="filter for celebration" id={Filters.CELEBRATION} className="filter-button" onClick={onClick}>celebration</button>
+            <button aria-label="filter for thank you" id={Filters.TY} className="filter-button" onClick={onClick}>thank you</button>
+            <button aria-label="filter for inspiration" id={Filters.INSPO} className="filter-button" onClick={onClick}>inspiration</button>
         </section>
   );
 }

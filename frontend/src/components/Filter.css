@@ -1,5 +1,5 @@
 
-.filterButtonContainer{
+.filter-button-container{
     display:flex;
     justify-content:left;
     width:80%;
@@ -7,7 +7,7 @@
     margin-left:auto;
   }
 
-  .filterButton{
+  .filter-button{
     height:40px;
     font-size:20px;
     border:none;
@@ -15,7 +15,7 @@
     margin-right: 5%;
   }
 
-  .filterButton:hover{
+  .filter-button:hover{
     background-color: #ececec;
     cursor: pointer;
   }

@@ -17,18 +17,18 @@ function AddBoard(props) {
     const getModal = () => {
         if (modalOpen) {
             return(
-            <div className="modalOverlay" onClick={closeModal}>
+            <div className="modal-overlay" onClick={closeModal}>
                 <div className="modal" onClick={(event) => event.stopPropagation()}>
-                    <h2 className="modalTitle">create a new board</h2>
-                    <div className="addForm">
-                        <input type="text" className="nameInput" name="boardName" placeholder="title" required />
-                        <select className="categoryInput" required>
+                    <h2 className="modal-title">create a new board</h2>
+                    <div className="add-form">
+                        <input type="text" className="name-input" name="board-name" placeholder="title" required />
+                        <select className="category-input" required>
                             <option value="default">select a category</option>
                             <option value="celebration">celebration</option>
                             <option value="thank you">thank you</option>
                             <option value="inspiration">inspiration</option>
                         </select>
-                        <button className="submitButton" type="submit">create</button>
+                        <button aria-label="submit new board" className="submit-button" type="submit">create</button>
                     </div>
                 </div>
             </div>)
@@ -38,11 +38,11 @@ function AddBoard(props) {
     return (
         <div>
 
-            <button className="addButton" onClick={openModal}>
-                <img className="addImage" src="src/assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png" alt="create new board icon"/>
+            <button aria-label="add new Board" className="add-button" onClick={openModal}>
+                <img className="add-image" src="src/assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png" alt="create new board icon"/>
             </button>
             {getModal()}
-            
+
         </div>
     );
 }

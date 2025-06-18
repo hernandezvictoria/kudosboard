@@ -201,7 +201,7 @@ function App() {
         </section>
       </section>
 
-      <section className="addBoard">
+      <section className="add-board">
         <AddBoard />
       </section>
 
