@@ -1,98 +1,29 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import BoardContainer from './components/BoardContainer.jsx'
-import Search from './components/Search.jsx'
-import Filter from './components/Filter.jsx'
-import AddBoard from './components/AddBoard.jsx'
+import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
 
 
 function App() {
 
-  const [displayedData, setDisplayedData] = useState([]);
-  const [error, setError] = useState(null);
-
-  const displayAllData = () => {
-    fetch('http://localhost:3000/boards')
-    .then((response) => {return response.json()})
-    .then((data) => setDisplayedData(data))
-    .catch(error => setError(error));
-  };
-
-  useEffect(() => {
-    displayAllData();
-  }, []); // show all boards on the first render
-
-  const onFilterClick = (filter) => {
-    fetch(`http://localhost:3000/boards/${filter}`)
-    .then((response) => {return response.json()})
-    .then((data) => setDisplayedData(data))
-    .catch(error => console.error(setError(error)));
-  }
-
-  const onSearch = (searchTerm) => {
-    fetch(`http://localhost:3000/boards/search/${searchTerm}`)
-    .then((response) => {return response.json()})
-    .then((data) => setDisplayedData(data))
-    .catch(error => console.error(setError(error)));
-  }
-
-  const onAddBoard = (newBoard) => {
-    fetch(`http://localhost:3000/boards/add-board`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newBoard),
-    })
-      .then((response) => response.json())
-      .then((newData) => setDisplayedData([...displayedData, newData]))
-      .catch((error) => console.error(setError(error)));
-  };
-
-  const onDeleteBoard = (id) => {
-    fetch(`http://localhost:3000/boards/delete-board/${id}`, {method: 'DELETE'})
-    .then((response) => response.json())
-    .then((deletedBoard) => setDisplayedData(displayedData.filter((board) => board.id !== deletedBoard.id)))
-    .catch((error) => console.error(setError(error)));
-  };
-
-
-  const onClear = () => {
-    displayAllData();
-  }
-
-  if(error){
-    return <h1>Something went wrong 🫤 </h1>
-  }
-  else{
     return (
-      <div className="App">
+        <Router>
+            <header>
+               <h1>kudos board</h1>
+            </header>
 
-        <header>
-          <h1>kudos board</h1>
-          <Search onSearch={onSearch} onClear={onClear}/>
-          <Filter onFilterClick={onFilterClick}/>
+            <main>
+                <Routes>
+                <Route path="/" element={<Home/>} />
+                </Routes>
+          </main>
 
+            <footer>
+            <p className="footer">made with ♡ by victoria hernandez</p>
+            </footer>
+        </Router>
 
-        </header>
-
-        <section className="body">
-          <section className="boardContainer">
-            <BoardContainer data={displayedData} onDeleteBoard={onDeleteBoard}/>
-          </section>
-        </section>
-
-        <section className="add-board">
-          <AddBoard onAddBoard={onAddBoard}/>
-        </section>
-
-        <footer>
-          <p className="footer">made with ♡ by victoria hernandez</p>
-        </footer>
-
-      </div>
-    )
-  }
+      )
 
 }
 
