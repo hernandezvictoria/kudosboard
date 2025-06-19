@@ -2,8 +2,10 @@ import React from "react";
 import "./Post.css";
 import deleteIcon from '../../assets/icons8-delete-48.png'
 import upvoteIcon from '../../assets/icons8-up-60.png'
+import openPin from '../../assets/open-pin.png'
+import closedPin from '../../assets/closed-pin.png'
 
-function Post({ onUpvotePost, onDeletePost, id, board_id, message, gif_path, author, pinned, upvotes }) {
+function Post({ onTogglePin, onUpvotePost, onDeletePost, id, board_id, message, gif_path, author, pinned, upvotes }) {
 
   const handleDelete = (event) => {
     event.stopPropagation();
@@ -16,6 +18,8 @@ function Post({ onUpvotePost, onDeletePost, id, board_id, message, gif_path, aut
   }
 
   const handlePin = (event) => {
+    event.stopPropagation();
+    onTogglePin(parseInt(id));
 
   }
 
@@ -34,10 +38,10 @@ function Post({ onUpvotePost, onDeletePost, id, board_id, message, gif_path, aut
         <button className="upvotes" onClick={handleUpvote}> upvotes: {upvotes} </button>
 
         <section className="post-info">
-          <button className="delete" onClick={handleDelete}>
-            <img src={deleteIcon} alt="delete"/>
+          <button onClick={handleDelete}>
+            <img className="delete" src={deleteIcon} alt="delete"/>
           </button>
-            <p className="pinned" onClick={handlePin}>📌</p>
+            <img className="pinned" onClick={handlePin} src={pinned? closedPin : openPin}/>
         </section>
 
 

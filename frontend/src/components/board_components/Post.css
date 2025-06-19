@@ -22,9 +22,10 @@
 .post-info{
     display:flex;
     margin-bottom:20px;
+    align-items: center;
 }
 
-.upvotes, .pinned{
+.pinned, .delete{
     margin:0px 10px;
     margin-top:10px;
 }
@@ -34,7 +35,7 @@
     margin-top:20px;
 }
 
-img{
+.post-gif{
     border-radius:5%;
     width:90%;
     justify-content: center;
@@ -49,9 +50,14 @@ img{
     border:none;
     border-radius:5px;
     margin: 10px 0px;
-  }
+}
 
 .upvotes:hover{
     background-color: #ececec;
     cursor: pointer;
-  }
+
+}
+
+.delete, .pinned{
+    width:30px;
+}

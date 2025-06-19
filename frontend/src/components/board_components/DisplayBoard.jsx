@@ -42,6 +42,19 @@ function DisplayBoard() {
             .catch((error) => console.error(setError(error)));
     };
 
+    const onTogglePin = (id) => {
+        fetch(`http://localhost:3000/posts/toggle-pin/${id}`, { method: 'PUT' })
+            .then((response) => response.json())
+            .then((updatedPost) => {
+                setDisplayedData(
+                    displayedData.map((post) =>
+                        post.id === id ? updatedPost : post
+                    )
+                );
+            })
+            .catch((error) => console.error(setError(error)));
+    }
+
     const onAddPost = (newPost) => {
         fetch(`http://localhost:3000/posts/${id}/add-post`, {
           method: 'POST',
@@ -76,6 +89,7 @@ function DisplayBoard() {
                         <Post
                             key={obj.id}
                             id={obj.id}
+                            onTogglePin={onTogglePin}
                             onUpvotePost={onUpvotePost}
                             onDeletePost={onDeletePost}
                             board_id={obj.board_id}
