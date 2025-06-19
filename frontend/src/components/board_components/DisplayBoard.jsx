@@ -20,39 +20,21 @@ function DisplayBoard() {
 
     useEffect(() => {
         displayAllData();
-    }, [displayedData]); // Only run this on mount
+    }, [displayedData]);
 
     const onDeletePost = (id) => {
         fetch(`http://localhost:3000/posts/delete-post/${id}`, {method: 'DELETE'})
-        .then((response) => response.json())
-        .then((deletedPost) => setDisplayedData(displayedData.filter((post) => post.id !== deletedPost.id)))
         .catch((error) => console.error(setError(error)));
     }
 
     const onUpvotePost = (id) => {
         fetch(`http://localhost:3000/posts/upvote-post/${id}`, { method: 'PUT' })
-            .then((response) => response.json())
-            .then((upvotedPost) => {
-                setDisplayedData(
-                    displayedData.map((post) =>
-                        post.id === id ? upvotedPost : post
-                    )
-                );
-            })
-            .catch((error) => console.error(setError(error)));
+        .catch((error) => console.error(setError(error)));
     };
 
     const onTogglePin = (id) => {
         fetch(`http://localhost:3000/posts/toggle-pin/${id}`, { method: 'PUT' })
-            .then((response) => response.json())
-            .then((updatedPost) => {
-                setDisplayedData(
-                    displayedData.map((post) =>
-                        post.id === id ? updatedPost : post
-                    )
-                );
-            })
-            .catch((error) => console.error(setError(error)));
+        .catch((error) => console.error(setError(error)));
     }
 
     const onAddPost = (newPost) => {
@@ -63,8 +45,6 @@ function DisplayBoard() {
           },
           body: JSON.stringify(newPost),
         })
-        .then((response) => response.json())
-        .then((newData) => setDisplayedData([...displayedData, newData]))
         .catch((error) => console.error(setError(error)));
     };
 
