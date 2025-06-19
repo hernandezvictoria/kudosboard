@@ -29,7 +29,19 @@ function DisplayBoard() {
         .catch((error) => console.error(setError(error)));
     }
 
-    // NEEDF TO CHANGE
+    const onUpvotePost = (id) => {
+        fetch(`http://localhost:3000/posts/upvote-post/${id}`, { method: 'PUT' })
+            .then((response) => response.json())
+            .then((upvotedPost) => {
+                setDisplayedData(
+                    displayedData.map((post) =>
+                        post.id === id ? upvotedPost : post
+                    )
+                );
+            })
+            .catch((error) => console.error(setError(error)));
+    };
+
     const onAddPost = (newPost) => {
         fetch(`http://localhost:3000/posts/${id}/add-post`, {
           method: 'POST',
@@ -38,10 +50,12 @@ function DisplayBoard() {
           },
           body: JSON.stringify(newPost),
         })
-          .then((response) => response.json())
-          .then((newData) => setDisplayedData([...displayedData, newData]))
-          .catch((error) => console.error(setError(error)));
-      };
+        .then((response) => response.json())
+        .then((newData) => setDisplayedData([...displayedData, newData]))
+        .catch((error) => console.error(setError(error)));
+    };
+
+
 
 
     if(error){
@@ -62,6 +76,7 @@ function DisplayBoard() {
                         <Post
                             key={obj.id}
                             id={obj.id}
+                            onUpvotePost={onUpvotePost}
                             onDeletePost={onDeletePost}
                             board_id={obj.board_id}
                             message={obj.message}

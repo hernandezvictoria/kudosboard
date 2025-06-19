@@ -43,3 +43,15 @@ img{
 .upvotes:hover, .pinned:hover, .delete:hover{
     cursor: pointer;
 }
+
+.upvotes{
+    font-size:100%;
+    border:none;
+    border-radius:5px;
+    margin: 10px 0px;
+  }
+
+.upvotes:hover{
+    background-color: #ececec;
+    cursor: pointer;
+  }
