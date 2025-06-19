@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Board.css";
+import deleteIcon from '../../assets/white-delete.png'
 
 function Board({ onDeleteBoard, id, image_path, title, type, author }) {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Board({ onDeleteBoard, id, image_path, title, type, author }) {
         <p className="board-type">{type}</p>
         <p className="board-author">{author}</p>
       </section>
-      <button className="delete-button" onClick={handleDelete}>🗑️</button>
+      <img className="delete-button" onClick={handleDelete} src={deleteIcon} alt="delete icon" aria-label="delete board"/>
     </div>
   );
 }

@@ -30,6 +30,7 @@
 
 .board:hover .delete-button {
     display:flex;
+    cursor:pointer;
 }
 
 .board-title {
@@ -39,16 +40,17 @@
 .board-info {
     display: none; /* Initially hide the text */
     position: absolute;
-    top: 10px;
+    top: 20px;
     left: 10px;
     z-index: 1000;
     border-radius: 10px;
     font-size: 15px;
     padding: 5px;
-    white-space: nowrap;
+    white-space: normal; /* Allow text to wrap */
     text-align: left;
     color: white;
     background-color: transparent;
+    max-width: calc(100% - 20px); /* Ensure it doesn't exceed the board width */
 }
 
 .board-title {
@@ -56,6 +58,7 @@
     color: white;
     background-color: transparent;
     font-size: 200%;
+    word-wrap: break-word; /* Break long words */
 }
 
 
@@ -70,15 +73,23 @@
     font-size: 100%;
 }
 
-.delete-button {
-    display:none;
-    transform: translateY(-40px);
-    background-color: transparent;
-    justify-content: right;
-    height:0px;
-    margin:0px;
+
+.board-image {
+    border-radius: 20px;
+    position: relative; /* Make the image the positioning context */
 }
 
-.delete-button:hover {
+.delete-button {
+    display: none;
+    position: absolute; /* Position the button absolutely within the image */
+    top: 7px; 
+    right: 7px;
+    background-color: transparent;
+    margin: 0;
+    width: 22px;
+}
+
+.board:hover .delete-button {
+    display: flex;
     cursor: pointer;
 }

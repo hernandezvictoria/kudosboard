@@ -1,7 +1,6 @@
 import React from "react";
 import "./Post.css";
-import deleteIcon from '../../assets/icons8-delete-48.png'
-import upvoteIcon from '../../assets/icons8-up-60.png'
+import deleteIcon from '../../assets/black-delete.png'
 import openPin from '../../assets/open-pin.png'
 import closedPin from '../../assets/closed-pin.png'
 

@@ -48,9 +48,6 @@ function DisplayBoard() {
         .catch((error) => console.error(setError(error)));
     };
 
-
-
-
     if(error){
         return <h1>Something went wrong 🫤 </h1>
     }
