@@ -23,9 +23,9 @@ function DisplayBoard() {
     }, []); // Only run this on mount
 
     const onDeletePost = (id) => {
-        fetch(`http://localhost:3000/boards/delete-board/${id}`, {method: 'DELETE'})
+        fetch(`http://localhost:3000/posts/delete-post/${id}`, {method: 'DELETE'})
         .then((response) => response.json())
-        .then((deletedBoard) => setDisplayedData(displayedData.filter((board) => board.id !== deletedBoard.id)))
+        .then((deletedPost) => setDisplayedData(displayedData.filter((post) => post.id !== deletedPost.id)))
         .catch((error) => console.error(setError(error)));
     }
 
