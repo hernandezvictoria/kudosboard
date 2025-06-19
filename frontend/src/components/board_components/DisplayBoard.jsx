@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Post from './Post';
+import AddPost from './AddPost';
 
 function DisplayBoard() {
     const { id, title } = useParams(); // Access the :id parameter
@@ -22,6 +23,20 @@ function DisplayBoard() {
     const onDeletePost = (id) => {
 
     }
+
+    // NEEDF TO CHANGE
+    const onAddPost = (newPost) => {
+        fetch(`http://localhost:3000/posts/${id}/add-post`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newPost),
+        })
+          .then((response) => response.json())
+          .then((newData) => setDisplayedData([...displayedData, newData]))
+          .catch((error) => console.error(setError(error)));
+      };
 
 
     if(error){
@@ -51,6 +66,8 @@ function DisplayBoard() {
                             upvotes={obj.upvotes}/>);})
                 }
                 </div>
+
+                <AddPost onAddPost={onAddPost}/>
             </div>
         );
     }
