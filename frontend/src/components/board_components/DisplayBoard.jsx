@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Post from './Post';
 import AddPost from './AddPost';
+import backIcon from '../../assets/icons8-back-60.png'
+import './DisplayBoard.css'
 
 function DisplayBoard() {
     const { id, title } = useParams(); // Access the :id parameter
@@ -46,7 +48,7 @@ function DisplayBoard() {
     else{
         return (
             <div className="body">
-                <Link to="/">replace with back image</Link>
+                <Link to="/"><img className="back-icon" src={backIcon} alt="back icon" aria-label="return to home"/></Link>
 
                 <h2>{title}</h2>
 

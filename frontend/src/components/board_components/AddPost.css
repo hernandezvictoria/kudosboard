@@ -118,3 +118,9 @@ p{
     width: 30%;
     margin:10px 0px;
   }
+
+  .add-button{
+    display:flex;
+    justify-content: left;
+    margin-top:20px;
+  }

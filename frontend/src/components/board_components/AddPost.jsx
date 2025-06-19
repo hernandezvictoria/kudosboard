@@ -1,7 +1,6 @@
-
-
 import React, { useState } from "react";
 import "./AddPost.css";
+import addIcon from '../../assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png'
 
 function AddPost({ onAddPost }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,7 +21,7 @@ function AddPost({ onAddPost }) {
     event.preventDefault();
     const message = event.target['post-message'].value;
     const author = event.target['post-author'].value;
-    const gif_path = selectedGif ? selectedGif : "https://picsum.photos/200/300";
+    const gif_path = selectedGif ? selectedGif : "https://picsum.photos/200";
 
     const newPost = {
       gif_path,
@@ -37,12 +36,13 @@ function AddPost({ onAddPost }) {
   const handleSearchGifs = async (event) => {
     event.preventDefault();
     const searchTerm = event.target['gif-search'].value;
-    const apiKey = "ESJ2ypuCLdC3Xz2Symrqp9pKae55wYGV"; //replace with API key from env
+    const apiKey = import.meta.env.VITE_API_KEY;
     const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=6`);
     const data = await response.json();
     setSearchResults(data.data);
   };
 
+  // format search results as grid of gifs
   const getSearchGifs = () => {
     return (
       <form className="add-form" onSubmit={handleSearchGifs}>
@@ -59,6 +59,7 @@ function AddPost({ onAddPost }) {
           <div className="modal" onClick={(event) => event.stopPropagation()}>
             <h2 className="modal-title">create a new post</h2>
             {getSearchGifs()}
+            {/* search gif */}
             <div className="gif-results">
                 {searchResults.map(gif => (
                   <img className="gif"
@@ -70,6 +71,7 @@ function AddPost({ onAddPost }) {
                   />
                 ))}
               </div>
+              {/* add post form */}
             <form className="add-form" onSubmit={handleAddPost}>
               <input type="text" className="name-input" name="post-message" placeholder="message *" required />
               <input type="text" className="author-input" name="post-author" placeholder="author" />
@@ -84,7 +86,7 @@ function AddPost({ onAddPost }) {
   return (
     <div>
       <button aria-label="add new Post" className="add-button" onClick={openModal}>
-        <img className="add-image" src="src/assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png" alt="create new post icon" />
+        <img className="add-image" src={addIcon} alt="create new post icon" />
       </button>
       {getModal()}
     </div>

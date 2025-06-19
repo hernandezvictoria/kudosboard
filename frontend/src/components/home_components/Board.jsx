@@ -17,7 +17,7 @@ function Board({ onDeleteBoard, id, image_path, title, type, author }) {
 
   return (
     <div className="board" onClick={handleBoardClick}>
-      <img className="board-image" src={image_path} alt={title} />
+      <img className="board-image" src={image_path} alt={title} aria-label={title}/>
       <section className="board-info">
         <p className="board-title">{title}</p>
         <p className="board-type">{type}</p>
