@@ -16,7 +16,7 @@ function App() {
             <main>
                 <Routes>
                 <Route path="/" element={<Home/>} />
-                <Route path="/board/:id" element={<DisplayBoard/>} />
+                <Route path="/board/:id/:title" element={<DisplayBoard/>} />
                 </Routes>
           </main>
 

@@ -1,16 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Board.css";
 
 function Board({ onDeleteBoard, id, image_path, title, type, author }) {
-  
+  const navigate = useNavigate();
+
   const handleDelete = (event) => {
-    event.stopPropagation(); // Prevent the click from bubbling up
+    event.stopPropagation();
     onDeleteBoard(parseInt(id));
   };
 
   const handleBoardClick = () => {
-    // Navigate to the board's detail page
-    window.location.href = `/board/${id}`;
+    // use navigate to change the route without reloading the page
+    navigate(`/board/${id}/${title}`);
   };
 
   return (

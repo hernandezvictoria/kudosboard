@@ -6,9 +6,22 @@ const prisma = new PrismaClient();
 
 // get all boards
 router.get('/', async (req, res) => {
-    //prisma.<NAME OF TABLE>.findMany();
-    const allBoards = await prisma.board.findMany();
-    res.json(allBoards);
+    const id = req.query.id;
+    if (id) {
+        const board = await prisma.board.findUnique({
+            where: { id: parseInt(id) }
+        });
+        if (board) {
+            res.status(200).json(board);
+        } else {
+            res.status(404).send({ message: "Board not found" });
+        }
+    }
+    else{
+        const allBoards = await prisma.board.findMany();
+        res.status(200).json(allBoards);
+    }
+
 });
 
 // filter boards by type

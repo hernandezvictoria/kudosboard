@@ -22,7 +22,7 @@ function AddBoard({onAddBoard}) {
         const image_path = event.target['board-image'].value;
 
         const newBoard = {
-            image_path: image_path? image_path : "https://images.pexels.com/photos/3651752/pexels-photo-3651752.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+            image_path: image_path? image_path : "https://picsum.photos/200/300",
             title,
             type,
             author

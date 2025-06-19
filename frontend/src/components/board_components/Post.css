@@ -1,0 +1,49 @@
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width:15%;
+    min-width: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+
+    border-radius: 20px;
+    border:1px solid black;
+
+}
+
+.post-author{
+    font-size:100%;
+    color:gray;
+    margin:10px 2px;
+}
+
+.post-info{
+    display:flex;
+    margin-bottom:20px;
+}
+
+.upvotes, .pinned{
+    margin:0px 10px;
+    margin-top:10px;
+}
+
+.post-message{
+    font-size:150%;
+    margin-top:20px;
+}
+
+img{
+    border-radius:5%;
+    width:90%;
+    justify-content: center;
+}
+
+.upvotes:hover{
+    cursor: pointer;
+}
+
+.pinned:hover{
+    cursor:pointer;
+}
