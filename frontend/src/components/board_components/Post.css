@@ -40,10 +40,6 @@ img{
     justify-content: center;
 }
 
-.upvotes:hover{
+.upvotes:hover, .pinned:hover, .delete:hover{
     cursor: pointer;
-}
-
-.pinned:hover{
-    cursor:pointer;
 }

@@ -92,6 +92,20 @@ router.put('/upvote-post/:postId', async (req, res) => {
     }
 });
 
+router.delete('/delete-post/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+
+    try{
+        const deletedPost = await prisma.post.delete({
+            where: {id: id}
+        })
+        res.json(deletedPost);
+    }
+    catch (err){
+        res.status(404).send({message: "Board not found, please enter a valid id"});
+    }
+});
+
 
 
 
