@@ -20,7 +20,7 @@ function DisplayBoard() {
 
     useEffect(() => {
         displayAllData();
-    }, []); // Only run this on mount
+    }, [displayedData]); // Only run this on mount
 
     const onDeletePost = (id) => {
         fetch(`http://localhost:3000/posts/delete-post/${id}`, {method: 'DELETE'})
