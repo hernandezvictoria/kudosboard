@@ -32,11 +32,12 @@ function App() {
 
     return (
         <>
-          <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
+
 
           <Router>
               <div className="all">
                 <section>
+                <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
                   <header>
                     <h1>kudos board</h1>
                   </header>
