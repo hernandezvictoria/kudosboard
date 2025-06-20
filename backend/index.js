@@ -6,10 +6,6 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-})
-
 app.get('/', (req, res) => {
     res.send('kudosboard server active');
 });
@@ -19,3 +15,7 @@ app.use('/boards', boardRoutes);
 
 const postRoutes = require('./routes/posts');
 app.use('/posts', postRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+})
