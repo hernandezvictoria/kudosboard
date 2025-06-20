@@ -10,9 +10,10 @@ function Home() {
 
   const [displayedData, setDisplayedData] = useState([]);
   const [error, setError] = useState(null);
+  const BASE_URL = "https://kudosboard-backend.onrender.com"
 
   const displayAllData = () => {
-    fetch('http://localhost:3000/boards')
+    fetch(`${BASE_URL}/boards`)
     .then((response) => {return response.json()})
     .then((data) => setDisplayedData(data))
     .catch(error => setError(error));
@@ -23,21 +24,21 @@ function Home() {
   }, []); // show all boards on the first render
 
   const onFilterClick = (filter) => {
-    fetch(`http://localhost:3000/boards/${filter}`)
+    fetch(`${BASE_URL}/boards/${filter}`)
     .then((response) => {return response.json()})
     .then((data) => setDisplayedData(data))
     .catch(error => console.error(setError(error)));
   }
 
   const onSearch = (searchTerm) => {
-    fetch(`http://localhost:3000/boards/search/${searchTerm}`)
+    fetch(`${BASE_URL}/boards/search/${searchTerm}`)
     .then((response) => {return response.json()})
     .then((data) => setDisplayedData(data))
     .catch(error => console.error(setError(error)));
   }
 
   const onAddBoard = (newBoard) => {
-    fetch(`http://localhost:3000/boards/add-board`, {
+    fetch(`${BASE_URL}/boards/add-board`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ function Home() {
   };
 
   const onDeleteBoard = (id) => {
-    fetch(`http://localhost:3000/boards/delete-board/${id}`, {method: 'DELETE'})
+    fetch(`${BASE_URL}/boards/delete-board/${id}`, {method: 'DELETE'})
     .then((response) => response.json())
     .then((deletedBoard) => setDisplayedData(displayedData.filter((board) => board.id !== deletedBoard.id)))
     .catch((error) => console.error(setError(error)));

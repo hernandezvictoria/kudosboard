@@ -9,10 +9,11 @@ function DisplayBoard() {
     const { id, title } = useParams(); // Access the :id parameter
     const [displayedData, setDisplayedData] = useState([]);
     const [error, setError] = useState(null);
+    const BASE_URL = "https://kudosboard-backend.onrender.com"
 
     // Fetch the data for the specific board using the id
     const displayAllData = () => {
-        fetch("http://localhost:3000/posts/" + id)
+        fetch(`${BASE_URL}/posts/` + id)
         .then((response) => {return response.json()})
         .then((data) => setDisplayedData(data))
         .catch(error => setError(error));
@@ -23,22 +24,22 @@ function DisplayBoard() {
     }, [displayedData]);
 
     const onDeletePost = (id) => {
-        fetch(`http://localhost:3000/posts/delete-post/${id}`, {method: 'DELETE'})
+        fetch(`${BASE_URL}/posts/delete-post/${id}`, {method: 'DELETE'})
         .catch((error) => console.error(setError(error)));
     }
 
     const onUpvotePost = (id) => {
-        fetch(`http://localhost:3000/posts/upvote-post/${id}`, { method: 'PUT' })
+        fetch(`${BASE_URL}/posts/upvote-post/${id}`, { method: 'PUT' })
         .catch((error) => console.error(setError(error)));
     };
 
     const onTogglePin = (id) => {
-        fetch(`http://localhost:3000/posts/toggle-pin/${id}`, { method: 'PUT' })
+        fetch(`${BASE_URL}/posts/toggle-pin/${id}`, { method: 'PUT' })
         .catch((error) => console.error(setError(error)));
     }
 
     const onAddPost = (newPost) => {
-        fetch(`http://localhost:3000/posts/${id}/add-post`, {
+        fetch(`${BASE_URL}/posts/${id}/add-post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
