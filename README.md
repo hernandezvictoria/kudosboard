@@ -135,7 +135,7 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kudosbo
 
 ### Walkthrough Video
 
-[`<div style="position: relative; padding-bottom: 54.166666666666664%; height: 0;"><iframe src="https://www.loom.com/embed/8931f824e97740d4a9fe27e42e4e0890?sid=e9b369a2-9a93-46fa-b156-63ab18859ba8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`](https://www.loom.com/share/8931f824e97740d4a9fe27e42e4e0890?sid=84d57369-7bd0-441c-abb2-b661c856c211)
+https://www.loom.com/share/8931f824e97740d4a9fe27e42e4e0890?sid=058abc06-869a-42ec-8202-a877aad965c7
 
 ### Reflection
 
