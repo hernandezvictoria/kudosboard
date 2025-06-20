@@ -31,29 +31,30 @@ function App() {
     }
 
     return (
-        <div>
+        <>
+          <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
 
-        <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
+          <Router>
+              <div className="all">
+                <section>
+                  <header>
+                    <h1>kudos board</h1>
+                  </header>
 
-        <Router>
-            <div className="all">
-            <header>
-               <h1>kudos board</h1>
-            </header>
+                  <main>
+                      <Routes>
+                      <Route path="/" element={<Home/>} />
+                      <Route path="/board/:id/:title" element={<DisplayBoard/>} />
+                      </Routes>
+                  </main>
+                </section>
 
-            <main>
-                <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/board/:id/:title" element={<DisplayBoard/>} />
-                </Routes>
-          </main>
-
-            <footer>
-            <p className="footer">made with ♡ by victoria hernandez</p>
-            </footer>
-            </div>
-        </Router>
-        </div>
+                <footer>
+                  <p className="footer">made with ♡ by victoria hernandez</p>
+                </footer>
+              </div>
+          </Router>
+        </>
 
       )
 

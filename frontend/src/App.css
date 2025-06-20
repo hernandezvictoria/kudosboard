@@ -5,6 +5,14 @@
     background-color: white;
 }
 
+.all{
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+
+}
+
 body.dark-mode, body.dark-mode * {
   color: white !important;
   background-color: black !important;
