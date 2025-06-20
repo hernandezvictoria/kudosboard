@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 import "./Search.css";
+import clearIcon from '../../assets/8666736_x_circle_icon.png'
+import searchIcon from '../../assets/3844432_magnifier_search_zoom_icon.png'
+
 
 function Search(props) {
   const inputRef = useRef(null);
@@ -24,10 +27,10 @@ function Search(props) {
         ref={inputRef}
       />
       <button aria-label="submit search" type="submit" className="search-button">
-        <img className="button-image" src="src/assets/3844432_magnifier_search_zoom_icon.png" alt="search icon" />
+        <img className="button-image" src={searchIcon} alt="search icon" />
       </button>
       <button aria-label="clear search" type="reset" className="clear-button">
-        <img className="button-image" src="src/assets/8666736_x_circle_icon.png" alt="clear icon" />
+        <img className="button-image" src={clearIcon} alt="clear icon" />
       </button>
     </form>
   );

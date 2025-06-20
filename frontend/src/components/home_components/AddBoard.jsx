@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react'
 import "./AddBoard.css";
+import addIcon from '../../assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png'
 
 function AddBoard({onAddBoard}) {
 
@@ -59,7 +60,7 @@ function AddBoard({onAddBoard}) {
         <div>
 
             <button aria-label="add new Board" className="add-button" onClick={openModal}>
-                <img className="add-image" src="src/assets/Microsoft-Fluentui-Emoji-Mono-Plus.512.png" alt="create new board icon"/>
+                <img className="add-image" src={addIcon} alt="create new board icon"/>
             </button>
             {getModal()}
 
