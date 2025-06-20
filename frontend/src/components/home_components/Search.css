@@ -1,10 +1,13 @@
 .button-image{
     width:40px;
+    border-radius:10px;
 }
 
 button{
     border:none;
+    background:white;
 }
+
 
 
 
@@ -26,7 +29,6 @@ button{
     display:flex;
     flex-direction:row;
     align-items: center;
-
   }
 
   .search-input{
@@ -43,3 +45,9 @@ button{
   .search-input:hover{
     background-color: #e4e4e4;
   }
+
+
+body.dark-mode .search-input {
+  border: 1px solid white;
+  color:white;
+}

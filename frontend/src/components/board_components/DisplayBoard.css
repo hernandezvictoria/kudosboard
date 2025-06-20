@@ -3,4 +3,5 @@
     width:40px;
     display:flex;
     justify-content:left;
+    border-radius: 10px;
 }

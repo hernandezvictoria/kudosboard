@@ -1,14 +1,42 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './components/home_components/Home'
 import DisplayBoard from './components/board_components/DisplayBoard'
 
 
 function App() {
+    // const [darkMode, setDarkMode] = useState(false);
+
+
+
+    const [darkMode, setDarkMode] = useState(() => {
+        // Load preference from localStorage if available
+        return localStorage.getItem("dark-mode") === "true";
+    });
+
+    useEffect(() => {
+        // Add or remove the dark-mode class on the body
+        if (darkMode) {
+            document.body.classList.add("dark-mode");
+        } else {
+          document.body.classList.remove("dark-mode");
+        }
+        // Save preference
+        localStorage.setItem("dark-mode", darkMode);
+      }, [darkMode]);
+
+      const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    }
 
     return (
+        <div>
+
+        <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
+
         <Router>
+            <div className="all">
             <header>
                <h1>kudos board</h1>
             </header>
@@ -23,7 +51,9 @@ function App() {
             <footer>
             <p className="footer">made with ♡ by victoria hernandez</p>
             </footer>
+            </div>
         </Router>
+        </div>
 
       )
 

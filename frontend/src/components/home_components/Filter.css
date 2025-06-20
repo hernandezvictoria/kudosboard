@@ -19,3 +19,7 @@
     background-color: #ececec;
     cursor: pointer;
   }
+
+  body.dark-mode .filter-button {
+    border: 1px solid white;
+  }

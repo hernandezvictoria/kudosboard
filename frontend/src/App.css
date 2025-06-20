@@ -1,8 +1,37 @@
 *{
     margin:0;
     text-align:center;
-  }
+    color:black;
+    background-color: white;
+}
 
+body.dark-mode, body.dark-mode * {
+  color: white !important;
+  background-color: black !important;
+}
+
+body.dark-mode img {
+  background-color: white !important;
+}
+
+.toggle-dark-button{
+  display:flex;
+  margin:20px;
+  height:40px;
+  align-items: center;
+  font-size:20px;
+  border:none;
+  border-radius:10px;
+}
+
+body.dark-mode .toggle-dark-button {
+  border: 1px solid white;
+}
+
+.toggle-dark-button:hover{
+  background-color: #ececec;
+  cursor: pointer;
+}
 
   h1{
     font-size:60px;

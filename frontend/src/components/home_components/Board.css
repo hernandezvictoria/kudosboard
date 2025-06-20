@@ -37,6 +37,8 @@
     font-size: 30px;
 }
 
+
+
 .board-info {
     display: none; /* Initially hide the text */
     position: absolute;
@@ -49,23 +51,26 @@
     white-space: normal; /* Allow text to wrap */
     text-align: left;
     color: white;
-    background-color: transparent;
+    background-color: transparent !important;
     max-width: calc(100% - 20px); /* Ensure it doesn't exceed the board width */
 }
+
+body.dark-mode .board-info, body.dark-mode .board-title, body.dark-mode .board-type, body.dark-mode .board-author {
+    background-color: transparent !important;
+  }
 
 .board-title {
     text-align: left;
     color: white;
-    background-color: transparent;
+    background-color: transparent !important;
     font-size: 200%;
     word-wrap: break-word; /* Break long words */
 }
 
-
 .board-type, .board-author {
     text-align: left;
     color: white;
-    background-color: transparent;
+    background-color: transparent !important;
     font-size: 150%;
 }
 
@@ -82,9 +87,9 @@
 .delete-button {
     display: none;
     position: absolute; /* Position the button absolutely within the image */
-    top: 7px; 
+    top: 7px;
     right: 7px;
-    background-color: transparent;
+    background-color: transparent !important;
     margin: 0;
     width: 22px;
 }
@@ -93,3 +98,7 @@
     display: flex;
     cursor: pointer;
 }
+
+body.dark-mode .delete-button {
+    background-color: transparent !important;
+  }
