@@ -37,8 +37,8 @@ function App() {
           <Router>
               <div className="all">
                 <section>
-                <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
-                  <header>
+                  <button onClick={toggleDarkMode} className="toggle-dark-button">{darkMode? "light mode": "dark mode"}</button>
+                  <header className="banner">
                     <h1>kudos board</h1>
                   </header>
 
